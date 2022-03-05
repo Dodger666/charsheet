@@ -1,0 +1,39 @@
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+
+<html>
+<head>
+	<style>
+	body {
+	  background-image: url('sheet.png');
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+	</style>
+</head>
+<body>
+<div id="app">{{ allAtt.message }}
+
+  <button @click="allAtt.count++">
+    Count is: {{ allAtt.count }}
+  </button>
+  <input v-model="allAtt.name" class="input" type="text" placeholder="Text input">
+</div>
+</html>
+
+<script type="module">
+  import { createApp } from 'vue'
+
+  createApp({
+    data() {
+      return { allAtt:
+		  {message: 'Hello Vue!', count: 0, name: 'fred' }
+      }
+    }
+  }).mount('#app')
+</script>
